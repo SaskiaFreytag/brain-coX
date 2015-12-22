@@ -14,7 +14,7 @@ brain-coX was built using [R] and [shiny].
 
 ## 1. Loading Data
 
-Currently, brain-coX supports six large transcriptomic datasets generated from post-mortem human brain samples. Whilst pursuing similar ideas the studies connected to these datasets differed vastly in their design and protocols:      
+Currently, brain-coX supports seven large transcriptomic datasets generated from post-mortem human brain samples. Whilst pursuing similar ideas the studies connected to these datasets differed vastly in their design and protocols:      
 
 | Study            | Age Range             | Platform                | Brains | Samples |
 |------------------|-----------------------|-------------------------|--------|---------|
@@ -24,6 +24,7 @@ Currently, brain-coX supports six large transcriptomic datasets generated from p
 | [Colantuoni et al] | [14 PCW, 80 years]    | Illumina (custom array) | 269    | 269     |
 | [Hernandez et al]  | [0.5 year, 102 years] | Illumina HumanHT-12     | 397    | 908     |
 | [Trabzuni et al]   | [16 years, 102 years] | Affymetrix Exon 1.0ST   | 134    | 1222    |
+| [Zhang et al]      | [22 years, 106 years] | Illumina HumanHT-12 V3.0   | 101    | 302     |
 
 Any number of datasets can be selected for further interrogation.
 
@@ -32,7 +33,8 @@ Any number of datasets can be selected for further interrogation.
 [Kang et al]: http://www.nature.com/nature/journal/v478/n7370/abs/nature10523.html
 [Colantuoni et al]: http://www.nature.com/nature/journal/v478/n7370/full/nature10524.html
 [Hernandez et al]: http://www.sciencedirect.com/science/article/pii/S0969996112000915
-[Trabzuni et al]: http://onlinelibrary.wiley.com/doi/10.1111/j.1471-4159.2011.07432.x/abstract  
+[Trabzuni et al]: http://onlinelibrary.wiley.com/doi/10.1111/j.1471-4159.2011.07432.x/abstract 
+[Zhang et al]: http://www.ncbi.nlm.nih.gov/pubmed/23622250
 
 ## 2. Finding Genes
 
@@ -82,7 +84,7 @@ Unlike in the BrainGEP prioritisiation strategy, brain-coX applies [geneRecommen
 
 ## 5. Visualisation
 
-brain-coX also provides visualisation for gene-gene interactions between known, candidate and priortised disease genes ("*Prioritised*" refers to the genes found by [BrainGEP] while "*Recommended*" refers to the genes identified by [geneRecommender]) as well as user specified genes as obtained using datasets individually or in a combined fashion. 
+brain-coX also provides visualisation for gene-gene interactions between known, candidate and priortised disease genes as well as user specified genes as obtained using datasets individually or in a combined fashion. 
 
 ### Networks:
 
@@ -161,8 +163,7 @@ The developmental periods used in brain-coX were defined by [Kang et al] and con
 
 > The prioritisation step does not give any results! What is wrong?
 >
->> This could either mean you are unable to prioritise any of your candidate genes or you might have to change the result displaying
->> options. By default brain-coX only displays the genes prioritized in all datasets for which the gene is available. 
+>> This could either mean you are unable to prioritise any of your candidate genes or you forgot to click the priortise button.
 
 > None of the answers above addresses my problem. Where can I get help?
 >

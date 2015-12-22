@@ -72,7 +72,7 @@ img {
 <p>brain-coX was built using <a href="https://www.r-project.org">R</a> and <a href="http://shiny.rstudio.com">shiny</a>.</p>
 <div id="loading-data" class="section level2">
 <h2>1. Loading Data</h2>
-<p>Currently, brain-coX supports six large transcriptomic datasets generated from post-mortem human brain samples. Whilst pursuing similar ideas the studies connected to these datasets differed vastly in their design and protocols:</p>
+<p>Currently, brain-coX supports seven large transcriptomic datasets generated from post-mortem human brain samples. Whilst pursuing similar ideas the studies connected to these datasets differed vastly in their design and protocols:</p>
 <table>
 <thead>
 <tr class="header">
@@ -126,6 +126,13 @@ img {
 <td align="left">134</td>
 <td align="left">1222</td>
 </tr>
+<tr class="odd">
+<td align="left"><a href="http://www.ncbi.nlm.nih.gov/pubmed/23622250">Zhang et al</a></td>
+<td align="left">[22 years, 106 years]</td>
+<td align="left">Illumina HumanHT-12 V3.0</td>
+<td align="left">101</td>
+<td align="left">302</td>
+</tr>
 </tbody>
 </table>
 <p>Any number of datasets can be selected for further interrogation.</p>
@@ -161,7 +168,7 @@ img {
 </div>
 <div id="visualisation" class="section level2">
 <h2>5. Visualisation</h2>
-<p>brain-coX also provides visualisation for gene-gene interactions between known, candidate and priortised disease genes (“<em>Prioritised</em>” refers to the genes found by <a href="http://bioinf.wehi.edu.au/software/BrainGEP/">BrainGEP</a> while “<em>Recommended</em>” refers to the genes identified by <a href="http://www.bioconductor.org/packages/release/bioc/html/geneRecommender.html">geneRecommender</a>) as well as user specified genes as obtained using datasets individually or in a combined fashion.</p>
+<p>brain-coX also provides visualisation for gene-gene interactions between known, candidate and priortised disease genes as well as user specified genes as obtained using datasets individually or in a combined fashion.</p>
 <div id="networks" class="section level3">
 <h3>Networks:</h3>
 <p>The visualised networks are based on the BrainGEP approach. However, the proportion of ranked random genes can be independently selected as well as the datasets to be included in the visualisation. For each interaction, brain-coX visualises in how many selected datasets this particular interaction is observed by the weight of edges in the network graph. Furthermore, brain-coX also visualises whether all datasets agree on an interaction being an inhibition or activation or whether there is disagreement between the selected datasets using the colour of the edges.</p>
@@ -301,7 +308,7 @@ img {
 <blockquote>
 <p>The prioritisation step does not give any results! What is wrong?</p>
 <blockquote>
-<p>This could either mean you are unable to prioritise any of your candidate genes or you might have to change the result displaying options. By default brain-coX only displays the genes prioritized in all datasets for which the gene is available.</p>
+<p>This could either mean you are unable to prioritise any of your candidate genes or you forgot to click the priortise button.</p>
 </blockquote>
 </blockquote>
 <blockquote>
