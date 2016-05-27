@@ -2,7 +2,7 @@
 title: "Documentation brain-coX"
 author: "Saskia Freytag"
 date: "26 August 2015"
-output: html_document
+output: pdf_document
 ---
 
 This document outlines the statistical and computational details of all brain-coX's functions. The functions are described in the same order as presented in brain-coX.   
@@ -22,10 +22,11 @@ Currently, brain-coX supports seven large transcriptomic datasets generated from
 | [Miller et al]     | [15 PCW, 21 PCW]      | Agilent 64K             | 4      | 1134    |
 | [Kang et al]       | [4 PCW, 82 years]     | Affymetrix Exon 1.0ST   | 57     | 1329    |
 | [Colantuoni et al] | [14 PCW, 80 years]    | Illumina (custom array) | 269    | 269     |
-| [Hernandez et al]  | [0.5 year, 102 years] | Illumina HumanHT-12     | 397    | 908     |
+| [Hernandez et al*]  | [0.5 year, 102 years] | Illumina HumanHT-12     | 397    | 908     |
 | [Trabzuni et al]   | [16 years, 102 years] | Affymetrix Exon 1.0ST   | 134    | 1222    |
 | [Zhang et al]      | [22 years, 106 years] | Illumina HumanHT-12 V3.0   | 101    | 302     |
 
+* This dataset contains individuals with abnormal brains.
 Any number of datasets can be selected for further interrogation.
 
 [Hawrylycz et al]: http://www.nature.com/nature/journal/v489/n7416/abs/nature11405.html
@@ -57,7 +58,17 @@ brain-coX applies removal of unwanted variation ([RUV, Gagnon-Bartsch and Speed]
 
 [Freytag et al]: http://www.bioconductor.org/packages/release/bioc/html/RUVcorr.html
 
-The main principle behind RUV is the use of negative control genes in order to estimate the effect of systematic noise on the gene expression measurements of each gene. Negative control genes are genes that are affected by systematic noise, but, crucially not by any biological variation of interest. The user can choose between the use of recommended housekeeping genes (adapated from [Eisenberg and Levanon]) and emprircally chosen genes as negative control genes. brain-coX automatically excludes all known, candidate and related disease genes from being negative control genes. Note that only the number of empricially chosen negative control genes can be specified, however brain-coX will inform the user about the number of housekeeping genes used in each dataset in the output.
+The main principle behind RUV is the use of negative control genes in order to estimate the effect of systematic noise on the gene expression measurements of each gene. Negative control genes are genes that are affected by systematic noise, but, crucially not by any biological variation of interest. The user can choose between the use of recommended housekeeping genes (adapated from [Eisenberg and Levanon]) and empirically chosen genes as negative control genes. brain-coX automatically excludes all known, candidate and related disease genes from being negative control genes. Note that only the number of empirically chosen negative control genes can be specified, however brain-coX will inform the user about the number of housekeeping genes used in each dataset in the output. Moreover, brain-coX uses slightly different values for the regularization parameters depending on which set of negative control genes are used. These can be found in the following table
+
+| Study            | k           | nu - Housekeeping Genes  |  nu - Empirically Genes |
+|------------------|-------------|--------------------------|-------------------------|
+| [Hawrylycz et al]  |  5 | 25000   | 50000     |
+| [Miller et al]     |  4 | 500000  | 500000    |
+| [Kang et al]       |  3 | 15000   | 10000     |
+| [Colantuoni et al] | 3  | 35000   | 25000     |
+| [Hernandez et al]  | 1  | 0       |  20000    |
+| [Trabzuni et al]   | 4  | 250000  | 350000    |
+| [Zhang et al]      |1   | 750     | 500       |
 
 [RUV, Gagnon-Bartsch and Speed]: http://biostatistics.oxfordjournals.org/content/13/3/539.short
 [Eisenberg and Levanon]: http://www.tau.ac.il/~elieis/HKG/
