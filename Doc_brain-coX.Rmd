@@ -2,7 +2,7 @@
 title: "Documentation brain-coX"
 author: "Saskia Freytag"
 date: "26 August 2015"
-output: pdf_document
+output: html_document
 ---
 
 This document outlines the statistical and computational details of all brain-coX's functions. The functions are described in the same order as presented in brain-coX.   
@@ -22,7 +22,7 @@ Currently, brain-coX supports seven large transcriptomic datasets generated from
 | [Miller et al]     | [15 PCW, 21 PCW]      | Agilent 64K             | 4      | 1134    |
 | [Kang et al]       | [4 PCW, 82 years]     | Affymetrix Exon 1.0ST   | 57     | 1329    |
 | [Colantuoni et al] | [14 PCW, 80 years]    | Illumina (custom array) | 269    | 269     |
-| [Hernandez et al*]  | [0.5 year, 102 years] | Illumina HumanHT-12     | 397    | 908     |
+| [Hernandez et al]*  | [0.5 year, 102 years] | Illumina HumanHT-12     | 397    | 908     |
 | [Trabzuni et al]   | [16 years, 102 years] | Affymetrix Exon 1.0ST   | 134    | 1222    |
 | [Zhang et al]      | [22 years, 106 years] | Illumina HumanHT-12 V3.0   | 101    | 302     |
 
