@@ -172,10 +172,6 @@ The developmental periods used in brain-coX were defined by [Kang et al] and con
 >> corner. If you are frequently using our tool you might want to obtain a version of brain-coX that runs locally. In that case please 
 >> contact Saskia Freytag via freytag.s@wehi.edu.au.
 
-> The prioritisation step does not give any results! What is wrong?
->
->> This could either mean you are unable to prioritise any of your candidate genes or you forgot to click the priortise button.
-
 > None of the answers above addresses my problem. Where can I get help?
 >
 >> Please address any questions to Saskia Freytag via freytag.s@wehi.edu.au. Of course any feedback and problem reporting are also welcome.
