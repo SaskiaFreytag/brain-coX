@@ -1,8 +1,8 @@
 ---
 title: "Documentation brain-coX"
 author: "Saskia Freytag"
-date: "26 August 2015"
-output: html_document
+date: "26 August 2016"
+output: pdf_document
 ---
 
 This document outlines the statistical and computational details of all brain-coX's functions. The functions are described in the same order as presented in brain-coX.   
@@ -54,7 +54,7 @@ brain-coX assumes [HUGO] gene identifiers. When there are multiple aliases for t
 
 ## 3. Cleaning
 
-brain-coX applies removal of unwanted variation ([RUV, Gagnon-Bartsch and Speed]) to all datasets. This data-driven cleaning procedure adaptively removes systematic noise while also taking the user’s research interest into account. This allows the combination of datasets as well as accurate estimation of gene-gene correlations (see [Freytag et al]). 
+brain-coX applies either removal of unwanted variation ([RUV, Gagnon-Bartsch and Speed]) or conventional data cleaning (background correction and quantile normalization) to all datasets separately. The RUV cleaning procedure is data-driven and adaptively removes systematic noise while also taking the user’s research interest into account. This allows the combination of datasets as well as accurate estimation of gene-gene correlations (see [Freytag et al]). 
 
 [Freytag et al]: http://www.bioconductor.org/packages/release/bioc/html/RUVcorr.html
 
@@ -75,16 +75,18 @@ The main principle behind RUV is the use of negative control genes in order to e
 
 ## 4. Prioritisation
 
-Gene priortisation is the core function of brain-coX and two different strategies to prioritise candidate genes with the help of the known genes are offered. 
+Gene priortisation is the core function of brain-coX and we have implmented a proven and successful prioritisation strategy, BrainGEP. We have extended BrainGEP to be period-specific, i.e. the user can subset datasets in order to include only samples from [periods] of interest.
 
 ### BrainGEP:
 
-The [BrainGEP] prioritising strategy is described in detail by [Oliver et al]. brain-coX implements this strategy for every selected dataset individually with some notable improvements. In particular, we developed a new approach to set the threshold that defines at which absolute correlation value interactions are declared significant. Briefly, we set the threshold for an absolute value of the Pearson correlation coefficient that corresponds to the top user selected proportion of ranked random genes. These random genes are ranked according to their maximum absolute correlation with any of the known disease genes. This process is repeated 1000 times and the average maximum absolute correlation was calculated and set as a threshold. Note that the size of the randomly selected genes corresponds to the number of candidates in the various datasets.  
+The [BrainGEP] prioritising strategy is described in detail by [Oliver et al]. brain-coX implements this strategy for every selected dataset individually with some notable improvements. In particular, we developed a new approach to set the threshold that defines at which absolute correlation value interactions are declared significant. Briefly, we set the threshold for an absolute value of the Pearson correlation coefficient that corresponds to the top user selected proportion of ranked random genes. These random genes are ranked according to their maximum absolute correlation with any of the known disease genes. This process is repeated 1000 times and the average maximum absolute correlation was calculated and set as a threshold. Note that the size of the randomly selected genes corresponds to the number of candidates in the various datasets. Unlike, BrainGEP the Pearson correlation coefficients are calculated in a weighted manner, where samples are weighted by the inverse of the square root of the number of samples in their corresponding brain.   
 
 [BrainGEP]: http://bioinf.wehi.edu.au/software/BrainGEP/
 [Oliver et al]:http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0102079
 
-brain-coX also tries to interpret the significance of the prioritisation results. In particular, brain-coX calculates the expected overlap of proritised genes between all selected datasets, i.e. how many genes should be expected to overlap by chance given the number of prioritised genes in each selected dataset and the total number of candidate genes. Note that this result is only useful if assuming that genes priortised in several datasets are more likely to be genuinely involved in the disease pathogenesis.   
+brain-coX also tries to interpret the significance of the prioritisation results. In particular, brain-coX calculates the expected overlap of proritised genes between all selected datasets, i.e. how many genes should be expected to overlap by chance given the number of prioritised genes in each selected dataset and the total number of candidate genes. Note that this result is only useful if assuming that genes priortised in several datasets are more likely to be genuinely involved in the disease pathogenesis. This is necessary to ensure that each brain is contributing roughly in an equal manner to the calculated correlation despite the very differing numbers of samples in each brain.   
+
+brain-coX also offers an alternative prioritization approach:
 
 ### geneRecommender:
 
@@ -99,7 +101,7 @@ brain-coX also provides visualisation for gene-gene interactions between known, 
 
 ### Networks:
 
-The visualised networks are based on the BrainGEP approach. However, the proportion of ranked random genes can be independently selected as well as the datasets to be included in the visualisation. For each interaction, brain-coX visualises in how many selected datasets this particular interaction is observed by the weight of edges in the network graph. Furthermore, brain-coX also visualises whether all datasets agree on an interaction being an inhibition or activation or whether there is disagreement between the selected datasets using the colour of the edges.
+The visualised networks are based on the BrainGEP approach as well as [periods] specified therein. However, the proportion of ranked random genes can be independently selected as well as the datasets to be included in the visualisation. For each interaction, brain-coX visualises in how many selected datasets this particular interaction is observed by the weight of edges in the network graph. Furthermore, brain-coX also visualises whether all datasets agree on an interaction being an inhibition or activation or whether there is disagreement between the selected datasets using the colour of the edges.
 
 Note that the layout of the network can be changed to resemble a tree structure. 
 
