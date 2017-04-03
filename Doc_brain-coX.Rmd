@@ -2,7 +2,9 @@
 title: "Documentation brain-coX"
 author: "Saskia Freytag"
 date: "26 August 2016"
-output: pdf_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 This document outlines the statistical and computational details of all brain-coX's functions. The functions are described in the same order as presented in brain-coX.   
@@ -115,11 +117,18 @@ There are several plot output options for the correlation plot. The genes in the
 
 ## 6. Analysis
 
+### Temporal:
+
 The user selects both the genes and the sets of [periods] of interest. Using these brain-coX will render a correlation plot, where the lower triangle displays the correlations of the genes as estimated from samples of individuals in the first selected set of periods and the upper triangle displays the correlations as estimated from samples of individuals in the second selected set of periods. brain-coX also tests whether individual correlations (using Fisher's test for correlations appropriately adjusted for the number of tests performed), as well as the set of correlations, are significantly different between the two sets of periods (using a covariance test). The correlations are calculated by combining datasets and rescaling them as well as weighting proportionally to the number of samples in each brain.
 
 [periods]: #periods
 
 brain-coX helps the user to interpret the output by providing some interactive features on the plot. By clicking on the gene lables of the y-axis all other gene-gene correlations are partially masked except for the ones relevant to the selected gene. Clicking anywhere but on the y-axis will re-establish the original plot.
+
+### Pathways:
+
+brain-coX allows the user to get an overview of pathways relating to the known and prioritised BrainGEP candidate genes. The user can select either KEGG or GO pathway ontolgy. brain-coX will
+then list the pathways which include known and/or prioritised candidate genes. Furthermore, the tool will also output the frequency of these genes in each listed pathway.
 
 ## 7. Hot Candidate
 
