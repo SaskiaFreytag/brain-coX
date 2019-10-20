@@ -77,7 +77,7 @@ The main principle behind RUV is the use of negative control genes in order to e
 
 ## 4. Prioritisation
 
-Gene priortisation is the core function of brain-coX and we have implmented a proven and successful prioritisation strategy, BrainGEP. We have extended BrainGEP to be period-specific, i.e. the user can subset datasets in order to include only samples from [periods] of interest.
+Gene prioritisation is the core function of brain-coX and we have implmented a proven and successful prioritisation strategy, BrainGEP. We have extended BrainGEP to be period-specific, i.e. the user can subset datasets in order to include only samples from [periods] of interest.
 
 ### BrainGEP:
 
@@ -86,13 +86,13 @@ The [BrainGEP] prioritising strategy is described in detail by [Oliver et al]. b
 [BrainGEP]: http://bioinf.wehi.edu.au/software/BrainGEP/
 [Oliver et al]:http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0102079
 
-brain-coX also tries to interpret the significance of the prioritisation results. In particular, brain-coX calculates the expected overlap of proritised genes between all selected datasets, i.e. how many genes should be expected to overlap by chance given the number of prioritised genes in each selected dataset and the total number of candidate genes. Note that this result is only useful if assuming that genes priortised in several datasets are more likely to be genuinely involved in the disease pathogenesis. This is necessary to ensure that each brain is contributing roughly in an equal manner to the calculated correlation despite the very differing numbers of samples in each brain.   
+brain-coX also tries to interpret the significance of the prioritisation results. In particular, brain-coX calculates the expected overlap of prioritised genes between all selected datasets, i.e. how many genes should be expected to overlap by chance given the number of prioritised genes in each selected dataset and the total number of candidate genes. Note that this result is only useful if assuming that genes prioritised in several datasets are more likely to be genuinely involved in the disease pathogenesis. This is necessary to ensure that each brain is contributing roughly in an equal manner to the calculated correlation despite the very differing numbers of samples in each brain.   
 
 brain-coX also offers an alternative prioritization approach:
 
 ### geneRecommender:
 
-Unlike in the BrainGEP prioritisiation strategy, brain-coX applies [geneRecommender] to the dataset combining all selected datasets. Datasets are combined after they are individually cleaned and rescaled to prevent different scaling from driving correlation results. The geneRecommender algorithm is described in detail by [Owen et al]. Briefly, the algorithm first identifies a subset of all samples that is most informative with regards to the behaviour of the known disease genes. It then uses these samples to score the candidate genes according to how similar their behaviour is to the behaviour of the known genes. The calculated score can then be ranked resulting in a ranking of the candidate genes from most interesting to least interesting. The user can select the number of genes that should be displayed. The user is informed about how many samples are deemed informative by geneRecommender in the output. It is possible that geneRecommender only uses a very small subset of all samples. In this situtation it might be advisable to force geneRecommender to use all samples, which can be done using the checkbox "*Use all samples*".   
+Unlike in the BrainGEP prioritisation strategy, brain-coX applies [geneRecommender] to the dataset combining all selected datasets. Datasets are combined after they are individually cleaned and rescaled to prevent different scaling from driving correlation results. The geneRecommender algorithm is described in detail by [Owen et al]. Briefly, the algorithm first identifies a subset of all samples that is most informative with regards to the behaviour of the known disease genes. It then uses these samples to score the candidate genes according to how similar their behaviour is to the behaviour of the known genes. The calculated score can then be ranked resulting in a ranking of the candidate genes from most interesting to least interesting. The user can select the number of genes that should be displayed. The user is informed about how many samples are deemed informative by geneRecommender in the output. It is possible that geneRecommender only uses a very small subset of all samples. In this situtation it might be advisable to force geneRecommender to use all samples, which can be done using the checkbox "*Use all samples*".   
 
 [geneRecommender]: http://www.bioconductor.org/packages/release/bioc/html/geneRecommender.html
 [Owen et al]: http://genome.cshlp.org/content/13/8/1828.short
